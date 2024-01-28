@@ -1,0 +1,184 @@
+<div>
+
+  <section class="bg-primary text-white pt-xxl intro">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-7">
+          <h1 class="intro-title mb-md">Create your set with our Advisor</h1>
+          <a [routerLink]="['/category']" class="btn btn-info fs-lg pt-xs pb-xs pe-lg ps-lg ">Shop now</a>
+          <div class="mb-lg d-lg-none"></div>
+        </div>
+        <div class="col-lg-5">
+          <img class="img-fluid" src="assets/images/1.png" srcset="assets/images/1.png 1x , assets/images/1@2x.png 2x"
+            alt="">
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="container mt-xxl">
+    <div>
+      <h3 class="fs-xl mb-md">Categories</h3>
+    </div>
+    <swiper [config]="categoriesSliderConfig" [navigation]="true">
+      <ng-template swiperSlide *ngFor="let item of [].constructor(10); let i = index">
+        <category-card></category-card>
+      </ng-template>
+    </swiper>
+  </section>
+
+  <section class="container mt-xxl">
+    <h3 class="fs-xl mb-md">Wear your mood</h3>
+
+    <swiper [config]="productsSliderConfig" [navigation]="true">
+      <ng-template swiperSlide *ngFor="let item of [].constructor(10); let i = index">
+        <mood-card></mood-card>
+      </ng-template>
+    </swiper>
+  </section>
+
+  <section class="advisorSection bg-dark text-white pt-xxl mt-xxl">
+    <div class="container">
+      <div class="row align-items-end">
+        <div class="col-lg-7">
+          <div class="max-lg pb-xxl">
+            <h3 class="fs-xxl mb-md">Create your set with our Advisor</h3>
+            <p class="fs-md mb-md">Use our advisor to customize your wear, we use advanced algorithm with help from the
+              best
+              fashionista to make the best set For you .</p>
+
+            <a class="btn btn-primary ps-lg pe-lg" [routerLink]="['/']" title="Give us your details">Give us your
+              details</a>
+          </div>
+        </div>
+        <div class="col-lg-5">
+          <img class="img-fluid" src="assets/images/3.png" srcset="assets/images/3.png 1x , assets/images/3@2x.png 2x"
+            alt="">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container mt-xxl">
+    <div class="max-md mx-auto text-center">
+      <h3 class="fs-xl mb-xs">Best Seller</h3>
+    </div>
+    <ul class="filterList mb-md fs-md">
+      <li><a href="javascript:void(0)" title="Shirt" class="is-active">Shirt</a></li>
+      <li><a href="javascript:void(0)" title="Trousers">Trousers</a></li>
+      <li><a href="javascript:void(0)" title="Ties">Ties</a></li>
+      <li><a href="javascript:void(0)" title="Shoes">Shoes</a></li>
+      <li><a href="javascript:void(0)" title="Socks">Socks</a></li>
+      <li><a href="javascript:void(0)" title="Perfume">Perfume</a></li>
+      <li><a href="javascript:void(0)" title="jacket">jacket</a></li>
+    </ul>
+    <swiper [config]="productsSliderConfig" [navigation]="true">
+      <ng-template swiperSlide *ngFor="let item of [].constructor(10); let i = index">
+        <product-card></product-card>
+      </ng-template>
+    </swiper>
+  </section>
+
+
+
+  <section class="container mt-xxl">
+
+    <div class="row align-items-center g-0">
+      <div class="col-lg-6 order-lg">
+        <img class="img-fluid" src="assets/images/5.png" srcset="assets/images/5.png 1x , assets/images/5@2x.png 2x"
+          alt="">
+      </div>
+      <div class="col-lg-6">
+        <div class="p-xl">
+          <h3 class="fs-xl mb-md">What women really love?</h3>
+          <p class="fs-md mb-md">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam non eirmod tempor ut
+            labore
+            et.
+          </p>
+          <a [routerLink]="['/product']" class="btn btn-primary">Take a look</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="row align-items-center g-0">
+      <div class="col-lg-6 ">
+        <div class="p-xl">
+          <h3 class="fs-xl mb-md">Fashion tibs</h3>
+          <ul class="list">
+            <li>Lorem ipsum dolor sit amet, consetetur. </li>
+            <li>At vero eos et accusam et justo duo dolores et ea. </li>
+            <li>Lorem ipsum dolor sit amet, consetetur. </li>
+            <li>At vero eos et accusam et justo duo dolores et ea. </li>
+            <li>Lorem ipsum dolor sit amet, consetetur. </li>
+            <li>At vero eos et accusam et justo duo dolores et ea. </li>
+            <li>Lorem ipsum dolor sit amet, consetetur. </li>
+
+          </ul>
+        </div>
+      </div>
+      <div class="col-lg-6 order-lg">
+        <img class="img-fluid" src="assets/images/6.png" srcset="assets/images/6.png 1x , assets/images/6@2x.png 2x"
+          alt="">
+      </div>
+    </div>
+  </section>
+
+
+  <section class="container mt-xxl">
+    <div class="max-xl mx-auto text-center mb-lg">
+      <h3 class="fs-xl mb-xs">Travel pants with 15 features</h3>
+      <p class="fs-md mb-0">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
+        invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
+    </div>
+
+    <div class="row">
+      <div class="col-md-4 text-center mt-col">
+        <h4 class="fs-xl">+$4M</h4>
+        <p class="fs-lg mb-0">Raised</p>
+      </div>
+      <div class="col-md-4 text-center mt-col">
+        <h4 class="fs-xl">+$40K</h4>
+        <p class="fs-lg mb-0">Customers</p>
+      </div>
+      <div class="col-md-4 text-center mt-col">
+        <h4 class="fs-xl">+15</h4>
+        <p class="fs-lg mb-0">Featured</p>
+      </div>
+    </div>
+
+  </section>
+
+
+
+  <section class="container mt-xxl">
+    <div class="max-xl mx-auto text-center mb-lg">
+      <h3 class="fs-xl mb-xs">Our clients says</h3>
+      <p class="fs-md mb-0">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
+        invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
+    </div>
+
+    <swiper [config]="clientsSliderConfig" [navigation]="true">
+      <ng-template swiperSlide *ngFor="let item of [].constructor(10); let i = index">
+        <client-card></client-card>
+      </ng-template>
+    </swiper>
+  </section>
+
+
+  <section class="container-fluid mt-xxl g-0">
+    <div class="row g-0">
+      <div class="col-md-6">
+        <a href="javascript:void(0)">
+          <app-image src="assets/dummy/b/1.jpg" ratio="is-2-1"></app-image>
+        </a>
+      </div>
+      <div class="col-md-6">
+        <a href="javascript:void(0)">
+          <app-image src="assets/dummy/b/2.jpg" ratio="is-2-1"></app-image>
+        </a>
+      </div>
+    </div>
+
+  </section>
+
+
+</div>

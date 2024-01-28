@@ -1,0 +1,24 @@
+.appBreadcrumbs {
+  list-style-type: none;
+  padding: 0;
+  margin: 0 rem(-10px);
+  display: flex;
+  flex-wrap: wrap;
+
+  > li {
+    > * {
+      color: rgba($dark, 0.5);
+      padding: 0 rem(10px);
+      display: inline-block;
+      &:hover,
+      &.is-active {
+        color: $dark;
+      }
+    }
+    &:not(:last-child) {
+      &:after {
+        content: "/";
+      }
+    }
+  }
+}

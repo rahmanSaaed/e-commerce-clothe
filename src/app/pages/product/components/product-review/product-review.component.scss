@@ -1,0 +1,26 @@
+@import "src/assets/style/global";
+
+.review {
+  display: flex;
+  align-items: center;
+  position: relative;
+  &-header {
+    width: rem(50px);
+    height: rem(50px);
+    border-radius: 20rem;
+    overflow: hidden;
+    flex: 0 0 rem(50px);
+  }
+  &-body {
+    flex: 1 1 0%;
+    font-size: 13px;
+    padding: 0 10px;
+    h4 {
+      font-size: 1rem;
+    }
+    &-content {
+      max-width: rem(800px);
+      display: block;
+    }
+  }
+}

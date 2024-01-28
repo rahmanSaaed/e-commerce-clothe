@@ -1,0 +1,12 @@
+<div class="blogCard">
+  <a class="blogCard-url" [routerLink]="['/blog/post', blogId]"></a>
+  <div class="blogCard-header">
+    <div class="blogCard-header-thumb">
+      <app-image [src]="image" alt={{name}}  ratio="is-3-2"></app-image>
+    </div>
+  </div>
+  <div class="blogCard-body pt-xs">
+    <p class="blogCard-date mb-xxs fs-xs">{{blogTag?.name || blogTag?.nameAr}} / {{dateCreated | date}}</p>
+    <h4 class="blogCard-title mb-0">{{name}}</h4>
+  </div>
+</div>

@@ -1,0 +1,5 @@
+@import "src/assets/style/global";
+
+.modal-body {
+  @include padding(60px);
+}

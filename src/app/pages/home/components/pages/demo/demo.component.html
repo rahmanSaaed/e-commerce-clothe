@@ -1,0 +1,86 @@
+<div class="pt-xl pb-xl container">
+  <h1 class=" fs-xl mb-lg">Pages</h1>
+
+  <a class="btn btn-primary text-capitalize me-xs mb-xs" [routerLink]="['/']">Home</a>
+  <a class="btn btn-primary text-capitalize me-xs mb-xs" [routerLink]="['/auth']">auth</a>
+  <a class="btn btn-primary text-capitalize me-xs mb-xs" [routerLink]="['/auth/login']">login</a>
+  <a class="btn btn-primary text-capitalize me-xs mb-xs" [routerLink]="['/auth/register']">register</a>
+  <a class="btn btn-primary text-capitalize me-xs mb-xs" [routerLink]="['/auth/forget-password']">forget-password</a>
+  <a class="btn btn-primary text-capitalize me-xs mb-xs" [routerLink]="['/auth/confirm']">confirm</a>
+  <a class="btn btn-primary text-capitalize me-xs mb-xs" [routerLink]="['/blog']">blog</a>
+  <a class="btn btn-primary text-capitalize me-xs mb-xs" [routerLink]="['/blog/single']">blog</a>
+  <a class="btn btn-primary text-capitalize me-xs mb-xs" [routerLink]="['/categories']">categories</a>
+  <a class="btn btn-primary text-capitalize me-xs mb-xs" [routerLink]="['/category']">category</a>
+  <a class="btn btn-primary text-capitalize me-xs mb-xs" [routerLink]="['/product']">product</a>
+  <a class="btn btn-primary text-capitalize me-xs mb-xs" [routerLink]="['/checkout']">checkout</a>
+  <a class="btn btn-primary text-capitalize me-xs mb-xs" [routerLink]="['/contact']">contact</a>
+  <a class="btn btn-primary text-capitalize me-xs mb-xs" [routerLink]="['/privacy-policy']">privacy-policy</a>
+  <a class="btn btn-primary text-capitalize me-xs mb-xs" [routerLink]="['/return-policy']">return-policy</a>
+  <a class="btn btn-primary text-capitalize me-xs mb-xs" [routerLink]="['/terms']">terms</a>
+
+
+  <div class="mt-xxl">
+
+
+    <div class="pt-xl">
+      <h2 class="mb-md">DefaultPlaceholder</h2>
+      <app-placeholder placeholder="default"></app-placeholder>
+    </div>
+
+    <div class="pt-xl">
+      <h2 class="mb-md">ProductPlaceholder</h2>
+      <div class="row">
+        <div class="col-xl-4 col-sm-6 mb-col" *ngFor="let item of [].constructor(6); let i = index">
+          <app-placeholder placeholder="product"></app-placeholder>
+        </div>
+      </div>
+    </div>
+
+    <div class="pt-xl">
+      <h2 class="mb-md">CategoryPlaceholder</h2>
+      <div class="row">
+        <div class="col-xl-2 col-lg-3 col-md-4 col-6 mb-col" *ngFor="let item of [].constructor(12); let i = index">
+          <app-placeholder placeholder="category"></app-placeholder>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="pt-xl">
+      <h2 class="mb-md">SliderPlaceholder</h2>
+      <div class="row">
+        <div class="col-xl-3 col-lg-4 col-sm-6">
+          <app-placeholder placeholder="product"></app-placeholder>
+        </div>
+        <div class="col-xl-3 col-lg-4 col-sm-6 d-none d-sm-block">
+          <app-placeholder placeholder="product"></app-placeholder>
+        </div>
+        <div class="col-xl-3 col-lg-4 col-sm-6 d-none d-lg-block">
+          <app-placeholder placeholder="product"></app-placeholder>
+        </div>
+        <div class="col-xl-3 col-lg-4 col-sm-6 d-none d-xl-block">
+          <app-placeholder placeholder="product"></app-placeholder>
+        </div>
+      </div>
+    </div>
+
+    <div class="pt-xl">
+      <h2 class="mb-md">ProductSingle</h2>
+      <app-placeholder placeholder="product-single"></app-placeholder>
+    </div>
+
+    <div class="pt-xl">
+      <h2 class="mb-md">blogPlaceholder</h2>
+      <div class="row">
+        <div class="col-lg-4 col-sm-6 mb-col" *ngFor="let item of [].constructor(6); let i = index">
+          <app-placeholder placeholder="blog"></app-placeholder>
+        </div>
+      </div>
+    </div>
+
+    <div class="pt-xl">
+      <h2 class="mb-md">Lines</h2>
+      <app-placeholder placeholder="lines"></app-placeholder>
+    </div>
+  </div>
+</div>

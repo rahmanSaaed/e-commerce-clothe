@@ -1,0 +1,73 @@
+<div class="pt-xl pb-xl container">
+  <div class="max-lg mx-auto">
+    <h1 class="text-center fs-xl mb-lg">Contact Us</h1>
+    <form [formGroup]="createContactForm" (ngSubmit)="createContact()" novalidate>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="mb-xs">
+            <label class="form-label">First Name *</label>
+            <input type="text" class="form-control" formControlName="name" [class.is-invalid]="name?.hasError('required') && (name?.dirty || name?.touched)">
+            <div class="invalid-feedback"
+            *ngIf="name?.hasError('required') && (name?.dirty || name?.touched)">
+            First Name is Rquired
+          </div>
+          </div>
+        </div>
+        <!-- <div class="col-md-6">
+          <div class="mb-xs">
+            <label class="form-label">Last Name</label>
+            <input type="text" class="form-control">
+          </div>
+        </div> -->
+      </div>
+
+      <div class="mb-xs">
+        <label class="form-label">Email Address *</label>
+        <input type="email" class="form-control" formControlName="email"  pattern="[^@\s]+@[^@\s]+\.[^@\s]+"
+         [class.is-invalid]="email?.hasError('required') && (email?.dirty || email?.touched) ||
+        email?.hasError('pattern') && (email?.dirty || email?.touched) ||
+         email?.hasError('required') && (email?.dirty || email?.touched)">
+        <div class="invalid-feedback is-invalid" *ngIf="email?.hasError('pattern') && (email?.dirty || email?.touched)">
+          Please enter avalid email address
+        </div>
+
+        <div class="invalid-feedback" *ngIf="email?.hasError('required') && (email?.dirty || email?.touched)">
+          Email Address is Rquired
+        </div>
+      </div>
+
+      <div class="mb-xs">
+        <label class="form-label">Mobile number *</label>
+        <input type="text" class="form-control" formControlName="phone" pattern="(201)[0-9]{9}" minlength="12" maxlength="12"
+        [class.is-invalid]="(phone?.hasError('required') ||
+        phone?.hasError('minlength') || phone?.hasError('pattern')) && (phone?.dirty || phone?.touched)">
+
+        <div class="invalid-feedback" *ngIf="phone?.hasError('required')">
+          phone Number is required
+        </div>
+
+        <div class="invalid-feedback" *ngIf="phone?.hasError('minlength')">
+          minimum length 12 characters
+        </div>
+        <div class="invalid-feedback" *ngIf="phone?.hasError('pattern')">
+          Phone must be 201234567890 (20XXXXXXXXXX)
+        </div>
+      </div>
+
+      <div class="mb-xs">
+        <label class="form-label">Message *</label>
+        <textarea class="form-control" formControlName="description"
+        [class.is-invalid]="(description?.hasError('required') && (description?.dirty || description?.touched))"></textarea>
+        <div class="invalid-feedback" *ngIf="description?.hasError('required')">
+          Message is required
+        </div>
+      </div>
+
+
+
+      <button class="btn btn-dark w-100" [disabled]="createContactForm.invalid">Send</button>
+
+    </form>
+
+  </div>
+</div>

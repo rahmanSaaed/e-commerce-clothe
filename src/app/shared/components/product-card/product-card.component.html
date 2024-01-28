@@ -1,0 +1,52 @@
+<div class="productCard">
+
+  <div class="productCard-header">
+    <a [routerLink]="['/product']" class="productCard-header-thumb" title="{{name}}" (click)="navigate()">
+      <app-image [src]="image" alt="{{name}}" ratio="is-1-1"></app-image>
+    </a>
+
+    <ul class="productCard-header-actions">
+      <li *ngIf="wishList != 'category'" (click)="addToFavorite()">
+        <span [ngClass]="{'is-active': fav}"  >
+          <ng-container >
+            <svg-icon src="assets/icons/heart-fill.svg"></svg-icon>
+          </ng-container>
+          <!-- <ng-template #favTemplate>
+            <svg-icon src="assets/icons/heart.svg"></svg-icon>
+          </ng-template> -->
+        </span>
+      </li>
+      <li>
+        <span [ngClass]="{'is-active': cart}" (click)="addProductToCart()">
+          <ng-container>
+            <svg-icon src="assets/icons/cart-check.svg"></svg-icon>
+          </ng-container>
+          <!-- <ng-template #cartTemplate>
+            <svg-icon src="assets/icons/cart.svg"></svg-icon>
+          </ng-template> -->
+        </span>
+      </li>
+    </ul>
+    <div class="productCard-header-sale" *ngIf="salePrice">Sale</div>
+  </div>
+
+  <div class="productCard-body">
+    <h4 class="productCard-title">
+      <a [routerLink]="['/product']">
+        {{name}}
+      </a>
+    </h4>
+    <div class=" d-flex justify-content-between">
+      <p class="productCard-price mb-0">
+        <span class="me-1">{{(salePrice? (salePrice * currency?.EGP_rate)  : (price * currency?.EGP_rate))  | number:'.1-2'}} {{currency?.isoAlpha_3}}</span>
+        <span class="productCard-price-old" *ngIf="salePrice">{{(salePrice? (price * currency?.EGP_rate) : (salePrice * currency?.EGP_rate)) | number:'.1-2'}} {{currency?.isoAlpha_3 }}</span>
+      </p>
+
+      <span class="productCard-rate">
+        <svg-icon src="assets/icons/star.svg" class="me-1"></svg-icon>
+        <span class="fs-xs">4.5 <span class="productCard-rate-num">(15)</span></span>
+      </span>
+    </div>
+  </div>
+
+</div>

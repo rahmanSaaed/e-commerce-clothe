@@ -1,0 +1,29 @@
+<div class="pt-xl pb-xl container">
+  <div class="max-md mx-auto">
+    <h1 class="text-center fs-lg mb-lg">Enter your email address to sign in or create an account</h1>
+    <form [formGroup]="validateBuyer" (ngSubmit)="validateBuyerEmail()" class="needs-validation" novalidate>
+
+      <div class="mb-xs">
+        <label class="form-label">Email Address</label>
+        <input type="email" class="form-control is-invalid" formControlName="email" pattern="[^@\s]+@[^@\s]+\.[^@\s]+"
+        [class.is-invalid]="email?.hasError('required') && (email?.dirty || email?.touched)"
+          required>
+        <div class="invalid-feedback" *ngIf="email?.hasError('pattern') && (email?.dirty || email?.touched)">>
+          Please enter avalid email address
+        </div>
+        <div class="invalid-feedback" *ngIf="email?.hasError('required') && (email?.dirty || email?.touched)">
+         Email is required
+        </div>
+
+      </div>
+
+
+      <button class="btn btn-dark w-100" type="submit">Continue</button>
+
+    </form>
+
+  </div>
+</div>
+
+
+<!-- [disabled]="isSubmitting || validateBuyer.invalid" -->

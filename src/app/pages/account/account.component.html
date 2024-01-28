@@ -1,0 +1,68 @@
+<div class="pt-xl pb-xl container">
+  <div class="row gx-5">
+    <div class="col-xl-3 col-lg-4">
+      <ul class="accountNav">
+        <li>
+          <a [routerLink]="['/account/orders']" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="is-active"
+            title="Orders">
+            <svg-icon class="me-2" src="assets/icons/list.svg"></svg-icon>
+            <span>Orders</span>
+          </a>
+        </li>
+        <li>
+          <a [routerLink]="['/account/details']" [routerLinkActiveOptions]="{ exact: true }"
+            routerLinkActive="is-active" title="Personal information">
+            <svg-icon class="me-2" src="assets/icons/contact.svg"></svg-icon>
+            <span>Personal information</span>
+          </a>
+        </li>
+        <li>
+          <a [routerLink]="['/account/addresses']" [routerLinkActiveOptions]="{ exact: true }"
+            routerLinkActive="is-active" title="Saved address">
+            <svg-icon class="me-2" src="assets/icons/map.svg"></svg-icon>
+            <span>Saved address</span>
+          </a>
+        </li>
+        <li>
+          <a [routerLink]="['/account/change-password']" [routerLinkActiveOptions]="{ exact: true }"
+            routerLinkActive="is-active" title="Change password">
+            <svg-icon class="me-2" src="assets/icons/key.svg"></svg-icon>
+            <span>Change password</span>
+          </a>
+        </li>
+        <li>
+          <a [routerLink]="['/account/subscriptions']" [routerLinkActiveOptions]="{ exact: true }"
+            routerLinkActive="is-active" title="Subscriptions">
+            <svg-icon class="me-2" src="assets/icons/near.svg"></svg-icon>
+            <span>Subscriptions</span>
+          </a>
+        </li>
+        <li>
+          <a [routerLink]="['/account/reviews']" [routerLinkActiveOptions]="{ exact: true }"
+            routerLinkActive="is-active" title="Reviews">
+            <svg-icon class="me-2" src="assets/icons/star-circle.svg"></svg-icon>
+            <span>Reviews</span>
+          </a>
+        </li>
+        <li>
+          <a [routerLink]="['/account/whishlist']" [routerLinkActiveOptions]="{ exact: true }"
+            routerLinkActive="is-active" title="Wishlist">
+            <svg-icon class="me-2" src="assets/icons/heart.svg"></svg-icon>
+            <span>Wishlist</span>
+          </a>
+        </li>
+        <li>
+          <a [routerLink]="['/']" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="is-active"
+            title="Logout">
+            <svg-icon class="me-2" src="assets/icons/exit.svg"></svg-icon>
+            <span>Logout</span>
+          </a>
+        </li>
+      </ul>
+      <div class="mb-xl d-lg-none"></div>
+    </div>
+    <div class="col-xl-9 col-lg-8">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

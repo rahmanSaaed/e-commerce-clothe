@@ -1,0 +1,27 @@
+<div class="modal  fade show d-block" tabindex="-1" *ngIf="show" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content ">
+      <div class="modal-body">
+        <h3 class="fs-lg mb-md">Review: White Long-Sleeved Jersey Shirt</h3>
+
+        <div class="mb-xs">
+          <label class="form-label">Rate</label>
+          <input class="form-control" type="number" max="5" min="1">
+        </div>
+
+
+        <div class="mb-xs">
+          <label class="form-label">Write your review</label>
+          <textarea class="form-control"></textarea>
+        </div>
+
+
+        <button type="button" class="btn btn-primary me-xs pe-md ps-md">Save</button>
+        <button type="button" class="btn btn-link" (click)="close()">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal-backdrop fade show" *ngIf="show" (click)="close()"></div>

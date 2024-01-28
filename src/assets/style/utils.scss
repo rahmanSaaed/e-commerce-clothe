@@ -1,0 +1,226 @@
+// Spacing
+$sizeUnit: rem;
+$marginKey: "m";
+$paddingKey: "p";
+$separator: "-";
+$sizes: (
+  ("none", 0),
+  ("xxs", 8px),
+  ("xs", 14px),
+  ("sm", 20px),
+  ("md", 24px),
+  ("lg", 40px),
+  ("xl", 80px),
+  ("xxl", 120px)
+);
+$positions: (("t", "top"), ("s", "left"), ("b", "bottom"), ("e", "right"));
+
+@function sizeValue($key, $value) {
+  @return if($key== "none", 0, $value + $sizeUnit);
+}
+[dir="ltr"] {
+  @each $size in $sizes {
+    $sizeKey: nth($size, 1);
+    $sizeValue: nth($size, 2);
+
+    .#{$marginKey}#{$separator}#{$sizeKey} {
+      @include margin($sizeValue);
+    }
+
+    .#{$paddingKey}#{$separator}#{$sizeKey} {
+      @include padding($sizeValue);
+    }
+
+    @each $position in $positions {
+      $posKey: nth($position, 1);
+      $posValue: nth($position, 2);
+
+      .#{$marginKey}#{$posKey}#{$separator}#{$sizeKey} {
+        @include rfs($sizeValue, margin-#{$posValue});
+      }
+
+      .#{$paddingKey}#{$posKey}#{$separator}#{$sizeKey} {
+        @include rfs($sizeValue, padding-#{$posValue});
+      }
+    }
+  }
+}
+.mb-col {
+  margin-bottom: $grid-gutter-width;
+}
+.mt-col {
+  margin-top: $grid-gutter-width;
+}
+
+// .rounded-pill {
+//   border-radius: 20rem !important;
+// }
+.order {
+  &-lg {
+    @include media-breakpoint-down(lg) {
+      order: -1;
+    }
+  }
+
+  &-md {
+    @include media-breakpoint-down(md) {
+      order: -1;
+    }
+  }
+
+  &-sm {
+    @include media-breakpoint-down(sm) {
+      order: -1;
+    }
+  }
+}
+.fs {
+  &-xxl {
+    @include font-size(64px);
+  }
+  &-xl {
+    @include font-size(48px);
+  }
+  &-lg {
+    @include font-size(30px);
+  }
+  &-md {
+    @include font-size(20px);
+  }
+  &-sm {
+    @include font-size(18px);
+  }
+  &-xs {
+    @include font-size(14px);
+  }
+}
+
+.max {
+  &-xxl {
+    max-width: rem(1000px);
+  }
+  &-xl {
+    max-width: rem(800px);
+  }
+  &-lg {
+    max-width: rem(660px);
+  }
+  &-md {
+    max-width: rem(400px);
+  }
+  &-sm {
+    max-width: rem(300px);
+  }
+  &-xs {
+    max-width: rem(260px);
+  }
+  &-xxs {
+    max-width: rem(140px);
+  }
+  &-120 {
+    max-width: rem(120px);
+  }
+  &-80 {
+    max-width: rem(80px);
+  }
+}
+
+.bg-light {
+  &-primary {
+    background: rgba($primary, 0.1);
+  }
+  &-warning {
+    background: rgba($warning, 0.1);
+  }
+  &-dark {
+    background: rgba($dark, 0.05);
+  }
+}
+.fw-medium {
+  font-weight: $font-weight-bold;
+}
+.font-base {
+  font-family: $font-family-base;
+}
+
+.list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+
+  > * {
+    display: flex;
+    &:before {
+      content: "";
+      width: 0.5em;
+      height: 0.5em;
+
+      background: $dark;
+      border-radius: 20rem;
+      display: flex;
+      margin: 0.5em 0.5em 0 0;
+      flex: 0 0 0.5em;
+    }
+    &:not(:first-child) {
+      margin-top: rem(8px);
+    }
+  }
+  &.is-center {
+    > * {
+      justify-content: center;
+    }
+  }
+}
+
+.filterList {
+  list-style-type: none;
+  padding: 0;
+  margin: 0 rem(-10px);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-transform: capitalize;
+
+  > li {
+    padding: 0 rem(10px) rem(10px);
+  }
+  .is-active {
+    color: $primary;
+    position: relative;
+    &:after {
+      content: "";
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      right: 0;
+      background: $primary;
+      height: 2px;
+      z-index: -1;
+    }
+  }
+}
+
+.bg-gray {
+  background: $gray-300;
+}
+
+.min-50 {
+  min-height: 50vh;
+}
+
+.appBox {
+  background: $gray-300;
+  text-align: center;
+  max-width: 800px;
+  width: 100%;
+  @include padding(80px);
+  margin-left: auto;
+  margin-right: auto;
+  &-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 50vh;
+  }
+}

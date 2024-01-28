@@ -1,0 +1,48 @@
+<div class="theFooter">
+  <div class="container">
+    <div class="row">
+      <div (click)="navigateTohome() " class="col-lg-4 theFooter-col cursor">
+        <svg-icon  src="assets/icons/logo.svg" class="theFooter-logo"></svg-icon>
+        <p class="mb-0 mt-sm">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
+          invidunt ut labore et
+          dolore magna aliquyam erat. </p>
+      </div>
+      <div class="col-lg-3 theFooter-col">
+        <h4 class="mb-sm">SHOP</h4>
+        <ul class="theFooter-nav">
+          <li *ngFor="let category of categoriesArr | slice : 0 : 10" class="cursor"><a [routerLink]="['/']"
+            (click)="goToCategoryProduct(category?.categoryId)" title="{{category.name || category.nameAr}}"
+             >{{category.name || category.nameAr}}</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3 theFooter-col">
+        <h4 class="mb-sm">SUPPORT</h4>
+        <ul class="theFooter-nav">
+          <li><a [routerLink]="['/about']" title="About us">About us</a></li>
+          <li><a [routerLink]="['/']" title="Accessibility">Accessibility</a></li>
+          <li><a [routerLink]="['/privacy-policy']" title="Privacy Policy">Privacy Policy</a></li>
+          <li><a [routerLink]="['/contact']" title="Help & Contact Us">Help & Contact Us</a></li>
+          <li><a [routerLink]="['/terms']" title="Terms & Conditions">Terms & Conditions</a></li>
+          <li><a [routerLink]="['/blog']" title="blog">blog</a></li>
+          <li><a [routerLink]="['/return-policy']" title="Return  Polic">Return  Policy</a></li>
+
+        </ul>
+      </div>
+      <div class="col-lg-2 theFooter-col">
+        <h4 class="mb-sm">FOLLOW US</h4>
+        <div class=" d-flex align-items-center">
+          <a class="d-inline-block me-xs fs-lg"  href="{{sittingsValues?.facebook}}" target="_blank" title="facebook">
+            <svg-icon src="assets/icons/facebook.svg"></svg-icon>
+          </a>
+          <a class="d-inline-block me-xs fs-lg" href="{{sittingsValues?.twitter}}" target="_blank" title="twitter">
+            <svg-icon src="assets/icons/twitter.svg"></svg-icon>
+          </a>
+          <a class="d-inline-block me-xs fs-lg"  href="{{sittingsValues?.instagram}}" target="_blank" title="instagram">
+            <svg-icon src="assets/icons/instagram.svg"></svg-icon>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

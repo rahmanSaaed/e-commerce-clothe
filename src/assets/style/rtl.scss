@@ -1,0 +1,44 @@
+[dir="rtl"] {
+  $positions: (("t", "top"), ("s", "right"), ("b", "bottom"), ("e", "left"));
+
+  @each $size in $sizes {
+    $sizeKey: nth($size, 1);
+    $sizeValue: nth($size, 2);
+
+    .#{$marginKey}#{$separator}#{$sizeKey} {
+      @include margin($sizeValue);
+    }
+
+    .#{$paddingKey}#{$separator}#{$sizeKey} {
+      @include padding($sizeValue);
+    }
+
+    @each $position in $positions {
+      $posKey: nth($position, 1);
+      $posValue: nth($position, 2);
+
+      .#{$marginKey}#{$posKey}#{$separator}#{$sizeKey} {
+        @include rfs($sizeValue, margin-#{$posValue});
+      }
+
+      .#{$paddingKey}#{$posKey}#{$separator}#{$sizeKey} {
+        @include rfs($sizeValue, padding-#{$posValue});
+      }
+    }
+  }
+
+  body,
+  * {
+    font-family: $font-family-ar;
+  }
+
+  .form-check {
+    padding-left: initial;
+    padding-right: 1.5em;
+    .form-check-input {
+      float: right;
+      margin-left: initial;
+      margin-right: -1.5em;
+    }
+  }
+}

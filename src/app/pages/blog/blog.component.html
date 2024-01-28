@@ -1,0 +1,16 @@
+<div class="pt-xl pb-xl container">
+  <div class="max-lg mx-auto text-center">
+    <h1 class="fs-xl mb-lg">Blog</h1>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-4 col-sm-6 mb-col" *ngFor="let blog of blogs; let i = index">
+      <blog-card [dateCreated]="blog?.dateCreated" [name]="blog?.name || blog?.nameAr" [image]="blog?.image" [blogTag]="blog?.blogTag"
+      [blogId]="blog?.blogId"></blog-card>
+    </div>
+  </div>
+
+  <!-- <div class="text-center mt-lg">
+    <button class="btn btn-outline-dark">Load more</button>
+  </div> -->
+</div>

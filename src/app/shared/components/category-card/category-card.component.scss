@@ -1,0 +1,10 @@
+@import "src/assets/style/global";
+.categoryCard {
+  border: 1px solid $gray-300;
+  display: block;
+  text-align: center;
+  @include padding(40px);
+  &-title {
+    @include margin(20px 0 0 0);
+  }
+}

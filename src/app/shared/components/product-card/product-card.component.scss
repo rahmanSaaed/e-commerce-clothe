@@ -1,0 +1,108 @@
+@import "src/assets/style/global";
+.productCard {
+  background: $white;
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  overflow: hidden;
+  &-header {
+    overflow: hidden;
+    &-thumb {
+      transition: 0.3s ease-in;
+      display: block;
+    }
+    &-sale {
+      position: absolute;
+      left: 0;
+      top: 0;
+      z-index: 4;
+      background: $dark;
+      font-weight: $font-weight-medium;
+      font-size: rem(14px);
+      padding: rem(2px) rem(8px);
+      color: $white;
+      user-select: none;
+    }
+    &-actions {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      list-style-type: none;
+      position: absolute;
+      top: rem(5px);
+      right: rem(5px);
+      z-index: 4;
+      > li {
+        transform: translateY(-10px);
+        transition: 0.3s ease-in;
+        opacity: 0;
+        margin-bottom: rem(5px);
+        &:nth-child(1) {
+          transition-delay: 0.1s;
+        }
+        > * {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: rem(34px);
+          height: rem(34px);
+          font-size: 0.85em;
+          border-radius: 20rem;
+          box-shadow: $box-shadow;
+          background: $white;
+          cursor: pointer;
+          border: 1px solid rgba($primary, 0.1);
+          transition: 0.2s ease-in;
+          &:hover,
+          &.is-active {
+            background: $primary;
+            color: $white;
+          }
+        }
+      }
+    }
+  }
+  &-title {
+    @include font-size(18px);
+    margin-bottom: rem(5px);
+    transition: 0.25s ease-in-out;
+  }
+  &-body {
+    @include padding(15px 0 0);
+  }
+  &-price {
+    color: $primary;
+    font-weight: $font-weight-medium;
+    &-old {
+      color: rgba($primary, 0.5);
+      text-decoration: line-through;
+      font-size: 0.8em;
+    }
+  }
+
+  &-rate {
+    white-space: nowrap;
+    color: $warning;
+    &-num {
+      color: rgba($dark, 0.3);
+    }
+  }
+
+  &:hover {
+    .productCard {
+      &-header {
+        &-thumb {
+          transform: scale(1.05);
+        }
+        &-actions {
+          > li {
+            transform: none;
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+}

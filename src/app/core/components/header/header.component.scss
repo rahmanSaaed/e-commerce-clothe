@@ -1,0 +1,112 @@
+@import "src/assets/style/global";
+
+.theHeader {
+  text-transform: capitalize;
+  position: relative;
+  z-index: $zindex-sticky;
+  font-weight: $font-weight-bold;
+  &-container {
+    height: rem(120px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    @include media-breakpoint-down(md) {
+      height: rem(80px);
+    }
+  }
+  &-start {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &-menu-icon {
+    font-size: rem(30px);
+  }
+  &-logo {
+    font-size: rem(120px);
+    line-height: 0;
+    transition: 0.25s ease-in-out;
+    display: flex;
+    position: relative;
+    z-index: 5;
+  }
+  &-nav {
+    list-style-type: none;
+    padding: 0;
+    margin: 0 rem(-8px);
+    display: flex;
+    height: 100%;
+    align-items: center;
+    a {
+      cursor: pointer;
+      &:hover {
+        color: $primary;
+      }
+    }
+    > li {
+      position: relative;
+      padding: 0 rem(8px);
+      height: 100%;
+      display: flex;
+      align-items: center;
+      > * {
+        transition: 0.25s ease-in-out;
+      }
+
+      > ul {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        list-style-type: none;
+        margin: 0;
+        background: $white;
+        box-shadow: $box-shadow;
+        color: $body-color;
+        border-radius: 0 0 rem(10px) rem(10px);
+        min-width: rem(170px);
+        padding: rem(10px) 0;
+        z-index: $zindex-dropdown;
+        opacity: 0;
+        transform: translateY(-1000vh);
+        transition: opacity 0.3s ease-in-out;
+        > li {
+          > * {
+            padding: rem(5px) rem(20px);
+            display: block;
+          }
+        }
+      }
+      &:hover {
+        > a {
+          color: $primary;
+        }
+        > ul {
+          opacity: 1;
+          transform: none;
+        }
+      }
+    }
+    &-icon {
+      position: relative;
+      font-size: rem(26px);
+      &-badge {
+        position: absolute;
+        top: rem(2px);
+        right: rem(-5px);
+        font-size: rem(10px);
+        height: rem(15px);
+        min-width: rem(15px);
+        line-height: rem(15px);
+        background: $primary;
+        color: $white;
+        border-radius: 20rem;
+        text-align: center;
+      }
+    }
+  }
+  .btn-dark {
+    &:hover {
+      color: $white !important;
+    }
+  }
+}

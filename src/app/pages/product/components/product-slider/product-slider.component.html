@@ -1,0 +1,20 @@
+<div class="product-slider">
+
+  <div class="product-slider-main">
+    <swiper [config]="mainSliderConfig" (swiper)="onSwiperMain($event)" (slideChange)="onSlideChangeMain($event)"
+      [thumbs]="{ swiper: subSlider }">
+      <ng-template swiperSlide *ngFor="let item of images; let i = index">
+        <app-image src='{{item}}'></app-image>
+      </ng-template>
+    </swiper>
+  </div>
+
+  <div class="product-slider-sub">
+    <swiper [config]="subSliderConfig" (swiper)="onSwiperSub($event)" (slideChange)="onSlideChangeSub($event)">
+      <ng-template swiperSlide *ngFor="let item of images; let i = index">
+        <app-image src='{{item}}'></app-image>
+      </ng-template>
+    </swiper>
+  </div>
+
+</div>

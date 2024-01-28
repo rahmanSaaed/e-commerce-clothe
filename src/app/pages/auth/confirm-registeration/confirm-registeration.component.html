@@ -1,0 +1,11 @@
+<div class="pt-xl pb-xl container">
+  <div class="appBox-container">
+    <div class="appBox">
+      <h1 class="fs-xl mb-xs">Thanks For Registration</h1>
+      <p>A message with a confirmation link was sent to your email click on the link in the message to complete your
+        registration .</p>
+      <button class="btn btn-sm btn-outline-dark" [disabled]="activeResend" (click)="sendReset()" >Resend again</button>
+      <p class="mb-0 fs-lg mt-md" [innerHTML]="initTimer" ></p>
+    </div>
+  </div>
+</div>

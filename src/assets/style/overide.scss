@@ -1,0 +1,45 @@
+.btn-primary,
+.btn-info {
+  color: $white;
+  &:hover,
+  &:focus {
+    color: $white;
+  }
+}
+.btn-outline-primary {
+  &:hover {
+    color: $white;
+  }
+}
+.swiper-slide {
+  height: auto;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  @include rfs(50px, width);
+  @include rfs(50px, height);
+  border-radius: 20rem;
+  color: $primary;
+  background: $white;
+  box-shadow: 0px 4px 8px 0px rgb(0 0 0 / 20%);
+  display: none;
+  &:after {
+    @include font-size(20px);
+  }
+}
+
+.swiper-container {
+  &:hover {
+    .swiper-button-prev,
+    .swiper-button-next {
+      display: flex;
+    }
+  }
+}
+
+.swiper-button-prev.swiper-button-disabled,
+.swiper-button-next.swiper-button-disabled {
+  cursor: pointer !important;
+  pointer-events: auto !important;
+}

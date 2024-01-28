@@ -1,0 +1,41 @@
+<div class="sidebarOverlay is-active">
+  <div class="sidebarOverlay-bg" (click)="SidebarService.sidebarOverlayToggle()"></div>
+  <div class="sidebarOverlay-container">
+    <div class="text-center  mb-lg">
+      <button class="sidebarOverlay-close btn" (click)="SidebarService.sidebarOverlayToggle()">
+        <svg-icon src="assets/icons/close.svg"></svg-icon>
+      </button>
+    </div>
+    <div class="pe-lg ps-lg">
+      <ul class="sidebarOverlay-nav">
+        <li>
+          <a [routerLink]="['/categories']" title="Categories">Categories</a>
+        </li>
+        <li>
+          <a [routerLink]="['/']" title="Bundels">Bundels</a>
+        </li>
+        <li>
+          <a [routerLink]="['/']" title="Rewards">Rewards</a>
+        </li>
+        <li>
+          <a [routerLink]="['/']" title="Gift Cards">Gift Cards</a>
+        </li>
+        <li>
+          <a [routerLink]="['/']" title="العربية">
+            <svg-icon src="assets/icons/lang.svg"></svg-icon>
+            <span>
+              العربية
+            </span>
+          </a>
+        </li>
+      </ul>
+
+      <a class="btn btn-dark w-100  mt-md" [routerLink]="['/create-set']" title="Create Set">Create Set</a>
+
+    </div>
+
+
+
+  </div>
+
+</div>

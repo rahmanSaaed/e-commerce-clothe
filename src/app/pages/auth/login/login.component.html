@@ -1,0 +1,31 @@
+<div class="pt-xl pb-xl container">
+  <div class="max-md mx-auto">
+    <h1 class="text-center fs-xl mb-lg">Login</h1>
+    <form class="row mb-100 needs-validation" [formGroup]="signIn" (ngSubmit)="login()" novalidate>
+
+      <div class="mb-xs">
+        <label class="form-label">Email Address</label>
+        <input type="email" class="form-control" type="email"  formControlName="email">
+        <div class="invalid-feedback">
+          Please enter a message in the textarea.
+        </div>
+      </div>
+
+      <div class="mb-xs">
+        <label class="form-label">Password</label>
+        <input type="password" class="form-control" formControlName="password">
+      </div>
+
+      <button class="btn btn-dark w-100">Login</button>
+
+    </form>
+    <div class="text-center mt-sm">
+      <a [routerLink]="['/auth/forget-password']" title="Forgot your password?" class="text-decoration-underline">Forgot
+        your password?</a>
+      <p class="mt-xxs">
+        <span> Don’t have account? </span>
+        <a [routerLink]="['/auth/register']" title="Sign Up" class="fw-bold ">Sign Up</a>
+      </p>
+    </div>
+  </div>
+</div>

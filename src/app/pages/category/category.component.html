@@ -1,0 +1,94 @@
+<div class="pt-sm pb-xl container">
+
+  <app-bread-crumb [categoryId]="categoryId" [subCategoryId]="subCategoryId" (attributesValue)="emitedAttributes($event)" ></app-bread-crumb>
+
+  <div class="d-flex justify-content-between align-items-center flex-wrap ">
+    <h1 class="fs-lg text-capitalize mb-md">Shirt </h1>
+    <div class="d-flex align-items-center  mb-md ">
+      <span class="me-2 text-nowrap text-primary">Sort by: </span>
+      <select class="form-select form-select-sm rounded" aria-label="Default select example">
+        <option selected>Popularity</option>
+        <option value="1">High - Low Price</option>
+        <option value="2">Low - High Price</option>
+        <option value="3">Newest</option>
+      </select>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-lg-3 col-md-4">
+      <div class="filterSidebar">
+        <div class="filterSidebar-item"  *ngIf="subCategories?.length > 0">
+          <input class="filterSidebar-item-input" type="checkbox" id="Category" checked>
+          <label class="filterSidebar-item-header" for="Category">
+            <h4 class="filterSidebar-item-title mb-0">Category</h4>
+            <span class="filterSidebar-item-icon">
+              <svg-icon src="assets/icons/chevron-down.svg"></svg-icon>
+            </span>
+          </label>
+          <div class="filterSidebar-item-body">
+            <form [formGroup]="filterSubCategoryForm" novalidate>
+
+            <div class="form-check" *ngFor="let data of subCategories; let i=index">
+              <input class="form-check-input" type="checkbox" value="" id="Shirts" #checkboxes [value]="data?.subcategoryId"
+              id="{{i + 1}}" (input)="onCheckboxChange($event, 'subCategories')">
+              <label class="form-check-label max-sm" for="Shirts" for="{{i + 1}}">
+                {{data?.name || data?.nameAr}}
+              </label>
+            </div>
+            </form>
+
+          </div>
+        </div>
+
+        <div class="filterSidebar-item" *ngFor="let attribute of allAttributes" [hidden]="attribute?.attributeType == 'color'">
+          <input class="filterSidebar-item-input" type="checkbox" id="Color" checked>
+          <label class="filterSidebar-item-header" for="Color">
+            <h4 class="filterSidebar-item-title mb-0">{{attribute?.name || attribute?.nameAr}}</h4>
+            <span class="filterSidebar-item-icon">
+              <svg-icon src="assets/icons/chevron-down.svg"></svg-icon>
+            </span>
+          </label>
+          <div class="filterSidebar-item-body">
+            <div class="form-check" *ngFor="let attrValue of attribute?.attributeValues">
+              <input class="form-check-input" type="checkbox" value="" id="{{attrValue?.attributeValueId}}"
+              (input)="formattingAttributes(attribute?.attributeId ,attrValue?.attributeValueId)">
+              <label class="form-check-label max-sm" for="{{attrValue?.attributeValueId}}">
+                {{attrValue?.name || attrValue?.nameAr}}
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="filterSidebar-item">
+          <input class="filterSidebar-item-input" type="checkbox" id="Price" checked>
+          <label class="filterSidebar-item-header" for="Price">
+            <h4 class="filterSidebar-item-title mb-0">Price</h4>
+            <span class="filterSidebar-item-icon">
+              <svg-icon src="assets/icons/chevron-down.svg"></svg-icon>
+            </span>
+          </label>
+          <div class="filterSidebar-item-body">
+            <ngx-slider [(value)]="PriceValue" [(highValue)]="highValue" [options]="options" (userChangeEnd)="price($event)"></ngx-slider>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="col-lg-9 col-md-8">
+
+      <div class="row">
+        <div class="col-xl-4 col-sm-6 mb-col" *ngFor="let product of products; let i = index">
+          <product-card
+          [name]="product?.name || product?.nameAr"
+          [image]="product?.frontImage" [price]="product?.price"
+          [reviews]="product?.reviews" [colors]="product?.colorsCollection"
+          [salePrice]="product?.salePrice" [id]="product?.variantId">
+        </product-card>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

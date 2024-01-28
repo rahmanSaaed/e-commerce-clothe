@@ -1,0 +1,57 @@
+<div class="theHeader">
+  <div class="theHeader-container container">
+    <div class="theHeader-start">
+      <a class="theHeader-menu-icon me-xs" href="javascript:void(0)" title="menu"
+        (click)="SidebarService.sidebarOverlayToggle()">
+        <svg-icon src="assets/icons/menu.svg"></svg-icon>
+      </a>
+      <a class="theHeader-logo" [routerLink]="['/']" title="Romeo">
+        <svg-icon src="assets/icons/logo.svg"></svg-icon>
+      </a>
+    </div>
+    <ul class="theHeader-nav">
+      <li class="d-none d-lg-flex">
+        <a [routerLink]="['/categories']" title="Categories">Categories</a>
+      </li>
+      <li class="d-none d-lg-flex">
+        <a [routerLink]="['/']" title="Bundels">Bundels</a>
+      </li>
+      <li class="d-none d-lg-flex">
+        <a [routerLink]="['/']" title="Rewards">Rewards</a>
+      </li>
+      <li class="d-none d-lg-flex">
+        <a [routerLink]="['/']" title="Gift Cards">Gift Cards</a>
+      </li>
+      <li class="d-none d-sm-flex">
+        <a [routerLink]="['/']" title="العربية">
+          <svg-icon src="assets/icons/lang.svg"></svg-icon>
+          <span>
+            العربية
+          </span>
+        </a>
+      </li>
+      <li>
+        <a [routerLink]="['/']" title="Favorites" class="theHeader-nav-icon">
+          <svg-icon src="assets/icons/heart.svg"></svg-icon>
+          <span class="theHeader-nav-icon-badge">5</span>
+        </a>
+      </li>
+      <li>
+        <a [routerLink]="['/checkout']" title="Cart" class="theHeader-nav-icon">
+          <svg-icon src="assets/icons/cart.svg"></svg-icon>
+          <span class="theHeader-nav-icon-badge">2</span>
+        </a>
+      </li>
+      <li>
+        <a [routerLink]="['/auth']" title="Account" class="theHeader-nav-icon">
+          <svg-icon src="assets/icons/person.svg"></svg-icon>
+        </a>
+      </li>
+      <li class="d-none d-sm-flex">
+        <a [routerLink]="['/']" title="Create set" class="btn btn-dark">
+          Create set
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>

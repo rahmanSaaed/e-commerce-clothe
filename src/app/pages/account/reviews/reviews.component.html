@@ -1,0 +1,40 @@
+<h1 class="mb-md">Reviews</h1>
+
+<table class="appTable">
+  <tbody>
+    <tr *ngFor="let item of [].constructor(4); let i = index">
+      <td>
+        <div class="d-flex align-items-center">
+          <div class="max-80 w-100 me-xxs">
+            <app-image></app-image>
+          </div>
+          <div>
+            <p class="fw-medium max-xs w-100 mb-0">K-303 Cubboard</p>
+            <div class="fs-xs">
+              <app-star-rate rate="3.5"></app-star-rate>
+            </div>
+          </div>
+        </div>
+      </td>
+      <td>
+        <span class="max-sm fs-xs d-block"> Fit in our space perfect. Colour was awesome, and is actually pretty
+          good
+          for
+          pets - we have two dogs in our studio. Best of all it is deep and comfortable.</span>
+      </td>
+      <td>
+
+        <button class="btn btn-sm btn-outline-primary  text-nowrap w-100 mb-xxs " (click)="show = true">
+          Edit
+        </button>
+        <br>
+        <button class="btn btn-sm btn-outline-dark  text-nowrap  w-100">
+          Delete
+        </button>
+
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<review-modal [(show)]="show" (hideModal)="show=$event"></review-modal>

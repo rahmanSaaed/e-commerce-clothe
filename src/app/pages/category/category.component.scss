@@ -1,0 +1,71 @@
+@import "src/assets/style/global";
+
+.filterSidebar {
+  &-item {
+    border: 1px solid $dark;
+    @include margin-bottom(30px);
+    &-header {
+      padding: rem(15px);
+      height: rem(60px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      &:hover {
+        color: $primary;
+      }
+      @include media-breakpoint-down(md) {
+        height: rem(50px);
+      }
+    }
+    &-title {
+      @include font-size(20px);
+    }
+    &-body {
+      padding: 0 rem(15px) 0;
+      overflow: hidden;
+      max-height: 0px;
+
+      @include scrollBar;
+    }
+    &-input {
+      display: none;
+      &:checked {
+        ~ .filterSidebar-item {
+          &-body {
+            padding: 0 rem(15px) rem(15px);
+            overflow-y: auto;
+            max-height: 600px;
+          }
+          &-header .filterSidebar-item-icon {
+            transform: rotate(180deg);
+          }
+        }
+      }
+    }
+  }
+}
+
+::ng-deep {
+  .ngx-slider .ngx-slider-pointer {
+    background-color: $dark !important;
+    outline: 0;
+    width: rem(20px) !important;
+    height: rem(20px) !important;
+    top: -9px !important;
+  }
+  .ngx-slider .ngx-slider-selection {
+    background: $dark !important;
+  }
+  .ngx-slider .ngx-slider-pointer:after {
+    background: $white !important;
+    display: none;
+  }
+  .ngx-slider .ngx-slider-bar {
+    background: rgba($dark, 0.1) !important;
+  }
+  .ngx-slider .ngx-slider-bubble.ngx-slider-limit,
+  .ngx-slider .ngx-slider-bubble {
+    color: $dark !important;
+  }
+}

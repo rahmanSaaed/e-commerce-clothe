@@ -1,0 +1,109 @@
+<div class="pt-xl pb-xl container">
+  <div class="max-md mx-auto">
+    <h1 class="text-center fs-xl mb-lg">Registration</h1>
+    <form [formGroup]="signUpForm" (ngSubmit)="register()" novalidate>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="mb-xs">
+            <label class="form-label">First Name</label>
+            <input type="email" class="form-control " type="text" formControlName="buyerFirstName"  [class.is-invalid]="buyerFirstName?.hasError('required') && (buyerFirstName?.dirty || buyerFirstName?.touched)">
+            <div class="invalid-feedback"
+              *ngIf="buyerFirstName?.hasError('required') && (buyerFirstName?.dirty || buyerFirstName?.touched)">
+              First Name is Rquired
+            </div>
+          </div>
+
+        </div>
+
+        <div class="col-md-6">
+          <div class="mb-xs">
+            <label class="form-label">Last Name</label>
+            <input type="text" class="form-control " type="text" formControlName="buyerLastName"
+            [class.is-invalid]="buyerLastName?.hasError('required') && (buyerLastName?.dirty || buyerLastName?.touched)">
+            <div class="invalid-feedback"
+              *ngIf="buyerLastName?.hasError('required') && (buyerLastName?.dirty || buyerLastName?.touched)">
+              Last Name is Rquired
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="mb-xs">
+        <label class="form-label">Email Address</label>
+        <input type="text" class="form-control " type="email" formControlName="email"
+        pattern="[^@\s]+@[^@\s]+\.[^@\s]+"
+        [class.is-invalid]="email?.hasError('required') && (email?.dirty || email?.touched) ||
+        email?.hasError('pattern') && (email?.dirty || email?.touched) ||
+         email?.hasError('required') && (email?.dirty || email?.touched)">
+
+
+
+        <div class="invalid-feedback is-invalid" *ngIf="email?.hasError('pattern') && (email?.dirty || email?.touched)">
+          Please enter avalid email address
+        </div>
+
+        <div class="invalid-feedback" *ngIf="email?.hasError('required') && (email?.dirty || email?.touched)">
+          Email Address is Rquired
+        </div>
+
+
+      </div>
+
+      <div class="mb-xs">
+        <label class="form-label">Mobile number</label>
+        <input type="text" class="form-control " formControlName="phoneNumber" pattern="(201)[0-9]{9}" minlength="12" maxlength="12"
+        [class.is-invalid]="(phoneNumber?.hasError('required') || phoneNumber?.hasError('minlength') || phoneNumber?.hasError('pattern')) && (phoneNumber?.dirty || phoneNumber?.touched)">
+
+
+        <div class="invalid-feedback" *ngIf="phoneNumber?.hasError('required')">
+          phone Number is required
+        </div>
+
+        <div class="invalid-feedback" *ngIf="phoneNumber?.hasError('minlength')">
+          minimum length 12 characters
+        </div>
+        <div class="invalid-feedback" *ngIf="phoneNumber?.hasError('pattern')">
+          Phone must be 201234567890 (20XXXXXXXXXX)
+        </div>
+
+      </div>
+
+      <div class="mb-xs">
+        <label class="form-label">Password</label>
+        <input type="password" class="form-control " type="password" formControlName="password" minlength="6"
+        [class.is-invalid]="(password?.hasError('required') || password?.hasError('minlength')) && (password?.dirty || password?.touched)"
+          maxlength="20">
+
+
+        <div class="invalid-feedback" *ngIf="password?.hasError('minlength')">
+          minimumlength 6
+        </div>
+
+        <div class="invalid-feedback" *ngIf="password?.hasError('required') && (password?.dirty || password?.touched)">
+          Password is Rquired
+        </div>
+
+      </div>
+
+      <div class="mb-xs">
+        <label class="form-label">Confirm Password</label>
+        <input type="password" class="form-control is-invalid" type="password" formControlName="confirmPassword" minlength="6"
+        [class.is-invalid]="confirmPassword?.hasError('required') && (confirmPassword?.dirty || confirmPassword?.touched)"
+          maxlength="20">
+        <div  *ngIf="matched && (confirmPassword?.dirty || confirmPassword?.touched)">
+          Confirm Password is Rquired
+        </div>
+      </div>
+
+      <button class="btn btn-dark w-100" [disabled]="isSubmitting ||  signUpForm.invalid">Complete Registration</button>
+
+    </form>
+    <div class="text-center mt-sm">
+      <p>
+        <span> Already I have account? </span>
+        <a [routerLink]="['/auth/login']" title="Sign in" class="fw-bold ">Sign in</a>
+      </p>
+    </div>
+  </div>
+</div>

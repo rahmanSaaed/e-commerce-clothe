@@ -1,0 +1,27 @@
+@import "src/assets/style/global";
+
+.rate {
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+  display: inline-flex;
+  margin-left: rem(-2px);
+  margin-right: rem(-2px);
+
+  &-colored {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: $warning;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  &-uncolored {
+    color: $gray-300;
+  }
+  svg-icon {
+    padding-left: rem(2px);
+    padding-right: rem(2px);
+  }
+}

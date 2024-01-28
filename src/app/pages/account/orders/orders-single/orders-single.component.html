@@ -1,0 +1,94 @@
+<h1 class="mb-lg">Order: TCTLZQ</h1>
+
+<div class="mb-lg">
+  <div class="checkoutSteps">
+    <div class="checkoutSteps-item is-active">
+      <span class="checkoutSteps-item-num">1</span>
+      <span class="checkoutSteps-item-title">Order Confirmed</span>
+    </div>
+    <div class="checkoutSteps-line"></div>
+    <div class="checkoutSteps-item">
+      <span class="checkoutSteps-item-num">2</span>
+      <span class="checkoutSteps-item-title">Processing</span>
+    </div>
+    <div class="checkoutSteps-line"></div>
+    <div class="checkoutSteps-item">
+      <span class="checkoutSteps-item-num">3</span>
+      <span class="checkoutSteps-item-title">Out For Delivery</span>
+    </div>
+    <div class="checkoutSteps-line"></div>
+    <div class="checkoutSteps-item">
+      <span class="checkoutSteps-item-num">4</span>
+      <span class="checkoutSteps-item-title">Diliverd</span>
+    </div>
+  </div>
+
+</div>
+
+
+<table class="appTable">
+  <tbody>
+    <tr *ngFor="let item of [].constructor(4); let i = index">
+      <td>
+        <div class="d-flex align-items-center">
+          <div class="max-80 w-100 me-xxs">
+            <app-image ratio="is-1-1"></app-image>
+          </div>
+          <span class="">Sleeved Jersey Shirt</span>
+        </div>
+      </td>
+      <td>
+        Qty: 3
+      </td>
+      <td class=" text-primary">9234 EGP</td>
+      <td>
+        <button class="btn btn-sm btn-outline-dark  rouded-pill" (click)="show = true">
+          Add Review
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+<div class="row">
+  <div class="col-lg-6 mt-col">
+    <div class="border p-lg h-100">
+      <p class="mb-xxs">
+        <span class="fw-bold">Transaction Code:</span>
+        TCTLZQ
+      </p>
+      <p class="mb-xxs">
+        <span class="fw-bold">Transaction Date:</span>
+        Apr 25, 2021
+      </p>
+      <p class="mb-xxs">
+        <span class="fw-bold">Email:</span>
+        support@baianat.com
+      </p>
+      <p class="mb-xxs">
+        <span class="fw-bold">delivery At:</span>
+        Apr 30,2021
+      </p>
+      <p class="mb-xxs">
+        <span class="fw-bold">phone:</span>
+        201231231231
+      </p>
+      <p class="mb-0">
+        <span class="fw-bold">Adress:</span>
+        123, Global, Program, Type: WORK
+      </p>
+    </div>
+  </div>
+  <div class="col-lg-6 mt-col">
+    <div class="border p-lg h-100">
+      <p class="mb-xxs"><span class="fw-bold">Payment Method: </span> Cash on Delivery</p>
+      <p class="mb-xxs"><span class="fw-bold">Sub Total:</span> 670.0 EGP</p>
+      <p class="mb-xxs"><span class="fw-bold">Shipping:</span> 141.0 EGP</p>
+      <p class="mb-xxs fs-md text-primary"><span class="fw-bold">Total:</span> 811.0 EGP</p>
+    </div>
+  </div>
+</div>
+
+
+<review-modal [(show)]="show" (hideModal)="show=$event"></review-modal>

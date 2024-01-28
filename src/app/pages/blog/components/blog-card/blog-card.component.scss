@@ -1,0 +1,36 @@
+@import "src/assets/style/global";
+
+.blogCard {
+  position: relative;
+  z-index: 2;
+  &-title {
+    @include font-size(20px);
+    transition: 0.25s ease-in-out;
+  }
+  &-url {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 4;
+    display: block;
+  }
+  &-header {
+    overflow: hidden;
+    &-thumb {
+      transition: 0.25s ease-out;
+    }
+  }
+  &:hover {
+    .blogCard {
+      &-title {
+        color: $primary;
+      }
+      &-header-thumb {
+        transform: scale(1.1);
+        transition: 0.5s ease-in;
+      }
+    }
+  }
+}

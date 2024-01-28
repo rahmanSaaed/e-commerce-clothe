@@ -1,0 +1,153 @@
+<div class="pt-sm pb-xl container">
+  <app-bread-crumb [categoryId]="categoryId" [subCategoryId]="subCategoryId"></app-bread-crumb>
+  <div class="row gx-5" >
+    <div class="col-lg-6">
+      <product-slider
+        [images]="sliderImages">
+      </product-slider>
+      <div class="mb-lg d-lg-none"></div>
+    </div>
+    <div class="col-xl-5 col-lg-6">
+      <h1 class="fs-lg product-title mb-xs">{{productDetail?.name || productDetail?.nameAr}}</h1>
+      <p class="product-price  mb-sm">
+        <span class="me-1">{{(productDetail?.salePrice ? (productDetail?.salePrice * currency?.EGP_rate) :
+          (productDetail?.price * currency?.EGP_rate)) | number:'.1-2' }} {{currency?.isoAlpha_3}} </span>
+        <span class="product-price-old" *ngIf="productDetail?.salePrice">{{(productDetail?.price * currency?.EGP_rate) |
+          number:'.1-2' }} {{currency?.isoAlpha_3}}</span>
+      </p>
+
+      <!-- <div class="mb-sm">
+        <label class="form-label">Size</label>
+        <select class="form-select">
+          <option selected value="1">Small</option>
+          <option value="2">Medium</option>
+          <option value="3">Large</option>
+        </select>
+      </div> -->
+
+      <div class="mb-sm" *ngFor="let attribute of productDetail?.productAttributesValues">
+        <label class="form-label">{{attribute?.name || attribute?.nameAr}}</label>
+        <select class="form-select" >
+          <option selected value="1"  *ngFor="let attrValue of attribute?.values; let i = index"  [hidden]="attribute?.attributeType == 'color'"
+          [ngClass]="(attribute?.defaultAttrId == attrValue?.attributeValueId) ? 'is-active' : '' "
+          (click)="changeVariant(attribute?.attributeId , attrValue?.attributeValueId)">{{attrValue?.name
+            || attrValue?.nameAr}}</option>
+        </select>
+      </div>
+
+      <!-- <div class="mb-sm">
+        <div class="d-flex align-items-center  mb-md ">
+          <span class="me-2 fw-medium fs-md text-nowrap">QTY : </span>
+          <select class="form-select form-select-sm  max-80" aria-label="Default select example">
+            <option selected>1</option>
+            <option value="1">2</option>
+            <option value="2">3</option>
+            <option value="3">4</option>
+          </select>
+        </div>
+
+      </div> -->
+
+      <button class="btn btn-dark w-100 mb-sm"
+      (click)="addProductToCart()" [disabled]="cartAdd" (click)="addedToCart = !addedToCart">
+        Add To cart
+      </button>
+      <button class="btn btn-outline-dark w-100 mb-lg" (click)="addToFavorite()">
+        Complete your set
+      </button>
+
+      <!-- <div class="d-flex flex-wrap align-items-center">
+
+        <span class="me-xs">SHARE: </span>
+        <a class="me-xs fs-md" href="javascript:void(0)" title="facebook">
+          <svg-icon src="assets/icons/facebook.svg"></svg-icon>
+        </a>
+        <a class="me-xs fs-md" href="javascript:void(0)" title="twitter">
+          <svg-icon src="assets/icons/twitter.svg"></svg-icon>
+        </a>
+        <a class="me-xs fs-md" href="javascript:void(0)" title="instagram">
+          <svg-icon src="assets/icons/instagram.svg"></svg-icon>
+        </a>
+      </div> -->
+
+    </div>
+  </div>
+  <div class="mt-xl">
+    <div class="border ">
+      <div class="row justify-content-between">
+        <div class="col-lg-6 ">
+          <div class="p-lg" *ngIf="productDetail?.description || productDetail?.descriptionAr">
+            <h4 class="mb-xs">Description</h4>
+            <p [innerHTML]="productDetail?.description || productDetail?.descriptionAr" ></p>
+            <!-- <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore
+              et dolore magna aliquyam erat, sed diam voluptua. Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
+              sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
+            <ul class="list">
+              <li>Lorem ipsum dolor sit amet, consetetur. </li>
+              <li>Lorem ipsum dolor sit amet, consetetur. </li>
+              <li>Lorem ipsum dolor sit amet, consetetur. </li>
+              <li>Lorem ipsum dolor sit amet, consetetur. </li>
+              <li>Lorem ipsum dolor sit amet, consetetur. </li>
+            </ul> -->
+          </div>
+
+        </div>
+        <div class="col-lg-5">
+          <div class="bg-gray p-lg">
+            <h4 class="mb-xs">Specifications</h4>
+            <table class="product-table">
+              <tbody>
+                <tr *ngFor="let construction of productDetail?.construction">
+                  <th>{{construction?.key || construction?.keyAr}}</th>
+                  <td>{{construction?.value || construction?.valueAr}}</td>
+                </tr>
+
+              </tbody>
+
+            </table>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-xl"  *ngIf=" productDetail?.reviews?.length > 0">
+    <div class="mb-md">
+      <div class="d-flex flex-wrap">
+        <h4 class="mb-xs me-sm" *ngIf=" productDetail?.reviews?.length > 0">Reviews  </h4>
+        <span class="mb-xs">
+          <!-- <app-star-rate rate="3.5"></app-star-rate> -->
+          <span class="ms-2 fs-xs">Avg. {{overallRatingValue}} stars</span>
+        </span>
+      </div>
+    </div>
+
+    <div *ngFor="let review of productDetail?.reviews">
+      <product-review [name]="review?.buyer?.buyerFirstName  + ' ' + review?.buyer?.buyerLastName" [rate]="review?.rate"
+      [description]="review?.description || review?.description" ></product-review>
+      <hr class="bg-primary">
+    </div>
+    <!-- <div class="text-center mt-md">
+      <button class="btn btn-outline-dark ">Load more reviews</button>
+    </div> -->
+  </div>
+
+  <div class="mt-xl">
+    <h3 class="mb-md">Customers Also Viewed </h3>
+    <swiper [config]="productsSliderConfig" [navigation]="true">
+      <ng-template swiperSlide *ngFor="let product of related; let i = index">
+        <product-card></product-card>
+        <product-card
+        [name]="product?.name || product?.nameAr"
+        [image]="product?.frontImage" [price]="product?.price"
+        [reviews]="product?.reviews" [colors]="product?.colorsCollection"
+        [salePrice]="product?.salePrice" [id]="product?.variantId">
+      </product-card>
+      </ng-template>
+    </swiper>
+  </div>
+
+</div>
+

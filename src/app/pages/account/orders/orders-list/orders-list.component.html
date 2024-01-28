@@ -1,0 +1,14 @@
+<h1 class="mb-md">Orders</h1>
+
+<table class="appTable">
+  <tbody>
+    <tr *ngFor="let item of [].constructor(4); let i = index">
+      <td class="fw-medium">CFBQXA</td>
+      <td>Mar 16, 2021 </td>
+      <td class="text-primary">Delivered</td>
+      <td>EGP 301 </td>
+      <td><a [routerLink]="['/account/orders/single']" class="btn btn-outline-dark btn-sm">View</a> </td>
+    </tr>
+
+  </tbody>
+</table>

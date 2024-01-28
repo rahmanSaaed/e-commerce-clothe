@@ -1,0 +1,27 @@
+@import "src/assets/style/global";
+.intro {
+  position: relative;
+  z-index: 2;
+  &-title {
+    @include font-size(110px);
+  }
+  &:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("/assets/images/2.png");
+    z-index: -1;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}
+
+.advisorSection {
+  background-image: url("/assets/images/4.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}

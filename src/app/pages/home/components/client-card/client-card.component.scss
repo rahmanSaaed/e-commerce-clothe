@@ -1,0 +1,15 @@
+@import "src/assets/style/global";
+.clientCard {
+  background: $white;
+  @include padding(20px);
+  border: 1px solid $gray-300;
+  display: flex;
+  align-items: center;
+  &-header {
+    width: rem(120px);
+    flex: 0 0 rem(120px);
+  }
+  &-body {
+    flex: 1 1 0%;
+  }
+}

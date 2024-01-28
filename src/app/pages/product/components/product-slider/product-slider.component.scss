@@ -1,0 +1,26 @@
+@import "src/assets/style/global";
+::ng-deep .product-slider {
+  position: relative;
+  &-sub {
+    margin-top: rem(20px);
+    .swiper-slide {
+      width: rem(50px);
+      height: rem(50px);
+      border: 1px solid transparent;
+      border-radius: 0;
+      overflow: hidden;
+      .appImage {
+        height: 100%;
+        padding-top: 0;
+        border: rem(5px) solid $white;
+        border-radius: 0;
+        overflow: hidden;
+      }
+      &-thumb-active {
+        border-color: $primary;
+        .appImage {
+        }
+      }
+    }
+  }
+}

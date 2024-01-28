@@ -1,0 +1,55 @@
+<!-- <div class="mb-md">
+  <ul class="appBreadcrumbs">
+
+    <li>
+      <a [routerLink]="['/']" routerLinkActive="is-active"
+        title="Home">{{'header.Home' | translate}}
+      </a>
+    </li>
+
+    <li *ngIf="(category?.name || category?.nameAr) && !isGettingCatName ">
+      <a  routerLinkActive="is-active"
+      (click)="goToCategoryProduct((category?.name || category?.nameAr), category?.categoryId)"
+        title="{{category?.name || category?.nameAr }}" >{{category?.name || category?.nameAr }}
+      </a>
+    </li>
+
+    <li *ngIf="(subCategory?.name || subCategory?.nameAr) && !isGettingCatName ">
+      <a  routerLinkActive="is-active"
+       (click)="goToSubCategoriesProducts((subCategory?.name ||subCategory?.nameAr) , subCategory?.subCategoryId)"
+        title="{{subCategory?.name || subCategory?.nameAr}}">{{subCategory?.name || subCategory?.nameAr}}
+      </a>
+    </li>
+
+    <li *ngIf="router.snapshot.url[0].path.includes('sale')">
+      <a  routerLinkActive="is-active"
+        title="Sale Products">Sale Products
+      </a>
+    </li>
+
+  </ul>
+</div> -->
+
+<div class="mb-lg">
+  <ul class="appBreadcrumbs">
+    <li>
+      <a [routerLink]="['/']" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: true }"
+        title="Home">Home
+      </a>
+    </li>
+    <li *ngIf="(category?.name || category?.nameAr) && !isGettingCatName ">
+      <a [routerLink]="['/category/aaa']" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: true }"
+      (click)="goToCategoryProduct()"
+        title="{{category?.name || category?.nameAr }}"
+        >{{category?.name || category?.nameAr }}
+      </a>
+    </li>
+    <li *ngIf="(subCategory?.name || subCategory?.nameAr) && !isGettingCatName ">
+      <a [routerLink]="['/category']" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: true }"
+      (click)="goToSubCategoriesProducts()"
+        title="{{subCategory?.name || subCategory?.nameAr}}"
+        title="shirt">{{subCategory?.name || subCategory?.nameAr}}
+      </a>
+    </li>
+  </ul>
+</div>

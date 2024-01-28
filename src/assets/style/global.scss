@@ -1,0 +1,83 @@
+$is-rtl: false;
+$rfs-breakpoint: 1400px;
+$rfs-base-value: 12px;
+
+// Colors
+$gray-900: #1d1d1b;
+$gray-300: #f0f0f0;
+$gray-400: #000000;
+
+$primary: #918574;
+$secondary: #000000;
+// $success: #61a1a8;
+$info: #bfb5a6;
+$warning: #ffcc00;
+// $danger: $red;
+// $light: $gray-100;
+$dark: #000;
+
+$font-family-base: "PT Serif", serif;
+// $headings-font-family: 'PT Serif', serif;
+$font-family-ar: "Almarai", sans-serif;
+$headings-font-weight: 700;
+$btn-font-weight: 700;
+$font-weight-bolder: 700;
+$font-weight-medium: 500;
+
+$link-color: inherit;
+$link-decoration: none;
+$link-hover-decoration: none;
+$link-hover-color: $primary;
+
+$border-radius: 0;
+$border-radius-sm: 0;
+$border-radius-lg: 0;
+$input-btn-padding-y: 0.6rem;
+$input-btn-padding-x: 1rem;
+$input-btn-padding-y-lg: 0.938rem;
+$input-btn-padding-x-lg: 1.5rem;
+$input-btn-font-size-lg: 1rem;
+
+$box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.08);
+
+$modal-content-bg: #fff;
+$modal-inner-padding: 2rem;
+
+$form-check-input-border-radius: 0;
+$form-check-margin-bottom: 0.3rem;
+$form-select-bg-position: right 0.5rem center;
+$form-check-input-border: 1px solid $dark;
+
+@function aspectRatio($width, $height) {
+  @return ($height / $width) * 100%;
+}
+
+@mixin scrollBar {
+  &::-webkit-scrollbar {
+    width: 0.5em;
+    height: 0.5em;
+    background-color: transparent;
+  }
+
+  &::-webkit-scrollbar-track {
+    -webkit-box-shadow: none;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba($primary, 0.5);
+    outline: 0 solid $gray-400;
+    border-radius: 20em;
+
+    &:hover {
+      background: rgba($primary, 0.8);
+    }
+  }
+}
+@function rem($size) {
+  @return $size / 16px * 1rem;
+}
+
+// Configuration
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";

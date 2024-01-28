@@ -1,0 +1,13 @@
+<div class="pt-xl pb-xl container">
+  <div class="text-center">
+    <h1 class="fs-xl mb-lg">Categories</h1>
+  </div>
+
+  <div class="row">
+    <div class="col-xl-2 col-lg-3 col-md-4 col-6 mb-col" *ngFor="let item of allCategories; let i = index">
+      <category-card [name]="item?.name || item?.nameAr" [image]="item?.image" [categoryId]="item?.categoryId"></category-card>
+    </div>
+  </div>
+
+
+</div>
